@@ -1,20 +1,71 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Library Management</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+  <!-- Book Input Form -->
+  <ion-list>
+    <ion-item>
+      <ion-label position="floating">Title</ion-label>
+      <ion-input 
+        [(ngModel)]="newBook.title" 
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Author</ion-label>
+      <ion-input 
+        [(ngModel)]="newBook.author" 
+        type="text"
+      ></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Price</ion-label>
+      <ion-input 
+        [(ngModel)]="newBook.price" 
+        type="number"
+      ></ion-input>
+    </ion-item>
+    
+    <ion-button 
+      expand="block" 
+      (click)="saveBook()"
+      color="primary"
+    >
+      {{ isEditing ? 'Update Book' : 'Add Book' }}
+    </ion-button>
+    <ion-button 
+      *ngIf="isEditing" 
+      expand="block" 
+      (click)="resetForm()"
+      color="medium"
+    >
+      Cancel
+    </ion-button>
+  </ion-list>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+  <!-- Book List -->
+  <ion-list>
+    <h2>Available books</h2>
+    <ion-item-sliding *ngFor="let book of books">
+      <ion-item>
+        <ion-label>
+          <h2>{{ book.title }}</h2>
+          <p>Author: {{ book.author }}</p>
+          <p>Price: ${{ book.price }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option color="primary" (click)="editBook(book)">
+          <ion-icon name="create-outline"></ion-icon>
+        </ion-item-option>
+        <ion-item-option color="danger" (click)="deleteBook(book.title)">
+          <ion-icon name="trash-outline"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
 </ion-content>
