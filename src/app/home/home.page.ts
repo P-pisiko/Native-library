@@ -14,7 +14,10 @@ export class HomePage implements OnInit {
     author: '',
     price: 0,
   };
+
   isEditing = false;
+
+  number = 0;
 
   constructor(private bookService: BookserviceService, private alertController: AlertController) {}
 
@@ -32,6 +35,12 @@ export class HomePage implements OnInit {
         this.showErrorAlert('Failed to load books', err);
       }
     });
+    this.bookService.getNumberBooks().subscribe({
+      next: (number) => {
+        this.number = number.key;
+        console.log(number)
+      }
+    })
   }
 
   saveBook() {

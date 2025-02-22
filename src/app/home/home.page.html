@@ -43,12 +43,18 @@
       color="medium"
     >
       Cancel
+  
+
     </ion-button>
   </ion-list>
 
   <!-- Book List -->
   <ion-list>
-    <h2>Available books</h2>
+    <div style="display: inline-flex; width: 100%; justify-content: space-around;">
+      <h2>Available books</h2>
+      <h3>{{number}}</h3>
+    </div>
+    
     <ion-item-sliding *ngFor="let book of books">
       <ion-item>
         <ion-label>

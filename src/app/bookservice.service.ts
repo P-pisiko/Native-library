@@ -18,10 +18,16 @@ export class BookserviceService {
 
   apiUrl = 'http://localhost:3000/books';
 
+
   constructor(private http: HttpClient) { }
 
   getAllBooks(): Observable<Book[]> {
     return this.http.get<Book[]>(this.apiUrl);
+  }
+
+  getNumberBooks(): Observable<any>{
+    let url = "getnumber";
+    return this.http.get(`${this.apiUrl}/${url}`);
   }
 
   createBook(book: Book): Observable<any> {
