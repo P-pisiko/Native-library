@@ -1,11 +1,11 @@
-### Hybrit library application for web-browsers/mobile devices
+# Hybrit library application for web-browsers/mobile devices
 
-#### This is a hybrit library  application.
+## This is a book tracking application for a library with CRUD functionalites
 
-## Technologies used 
+### Tech Stack 💻
 - Ionic
 - Angularjs
-- Nodejs
+- Node.js
 - Mongodb
 
 
@@ -23,10 +23,15 @@ cd  Native-library
 npm install
 ```
 
-## When the dependencies install you can run the application from the Ionic cli 
+## When the dependencies install you can start the application.
 ```
-Ionic serve
+npm start run
 ```
+
+## Future Improvements
+- Storing the images of the books in the server/database to display within the application.
+- Implementing an authentication system.
+
 
 ## Contact
 - Email: enesfidan75@proton.me
