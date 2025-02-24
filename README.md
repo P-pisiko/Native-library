@@ -4,7 +4,7 @@
 
 ### Tech Stack 💻
 - Ionic
-- Angularjs
+- Typescript
 - Node.js
 - Mongodb
 
