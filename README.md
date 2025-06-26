@@ -33,5 +33,3 @@ npm start run
 - Implementing an authentication system.
 
 
-## Contact
-- Email: enesfidan75@proton.me
