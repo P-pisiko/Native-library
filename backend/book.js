@@ -49,6 +49,17 @@ app.get('/books', (req, res) => {
         });
 });
 
+app.get('/books/getnumber', (req,res) => {
+    Book.countDocuments()
+        .then(NumberOfBooks => {
+            res.status(200).json({ key: NumberOfBooks });
+        })
+        .catch(err =>{
+            console.log(err);
+        })
+})
+
+
 //add a new book
 app.post('/books', (req, res) => {
     const input = req.body;
